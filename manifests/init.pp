@@ -28,7 +28,7 @@ class exim ($ensure="running",
             $hostlist_relay_from_hosts="127.0.0.1",
             $virus_scan=true,
             $av_scanner="clamd:/var/run/clamd.exim/clamd.sock",
-            $spam_scan=true,
+            $spam_scan=false,
             $spamd_address="127.0.0.1 783",
             $tls_advertise_hosts="*",
             $tls_certificate="/etc/pki/tls/certs/exim.pem",
@@ -63,7 +63,7 @@ class exim ($ensure="running",
             $gateway_auth_driver="smtp",
             $gateway_auth_hosts_try_auth="",
             $gateway_auth_username="",
-            $gateway_auth_secret="",
+            $gateway_auth_secret=""
         ) 
 {
     if ! ($ensure in [ "running", "stopped" ]) {
@@ -93,6 +93,13 @@ class exim ($ensure="running",
             }
         }
     }
+
+    if { $ensure == "running": 
+        $enabled = true
+    } else {
+        $enabled = false
+    }
+
     if ($supported == true) {
         package { $pkg_name:
             ensure => $version,
@@ -109,6 +116,7 @@ class exim ($ensure="running",
 
         service { "exim":
             ensure      => $ensure,
+            enabled     => $enabled,
             name        => $svc_name,
             hasstatus   => true,
             hasrestart  => true,
