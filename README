@@ -1,3 +1,10 @@
 exim
 
-This is the exim module.
+Installs, configures, and manages the exim service.
+
+Tested platforms:
+  - CentoOS 6.2
+
+Sample Usage:
+  include exim()
+  include exim(version="latest", use_smarthost=true, smarthost_route_data="mymta.domain.dom")

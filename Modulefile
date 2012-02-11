@@ -1,11 +1,8 @@
 name    'joejulian-exim'
 version '0.0.1'
-source 'UNKNOWN'
-author 'joejulian'
-license 'UNKNOWN'
-summary 'UNKNOWN'
-description 'UNKNOWN'
-project_page 'UNKNOWN'
-
-## Add dependencies, if any:
-# dependency 'username/name', '>= 1.2.0'
+source 'https://joejulian@github.com/joejulian/joejulian-exim.git'
+author 'Joe Julian'
+license 'GPLv3+'
+summary 'Manages Exim'
+description 'This puppet module manages exim'
+project_page 'None'
