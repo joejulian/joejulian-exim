@@ -1,5 +1,5 @@
 name    'joejulian-exim'
-version '0.0.4'
+version '0.0.5'
 source 'https://joejulian@github.com/joejulian/joejulian-exim.git'
 author 'Joe Julian'
 license 'GPLv3+'
