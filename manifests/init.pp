@@ -94,7 +94,7 @@ class exim ($ensure="running",
         }
     }
 
-    if { $ensure == "running": 
+    if ( $ensure == "running" ) {
         $enabled = true
     } else {
         $enabled = false
