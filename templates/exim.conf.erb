@@ -646,10 +646,6 @@ begin rewrite
 begin authenticators
 
 <% if use_gateway %>
-remote_smtp:
-    driver = <%= gateway_auth_driver %>
-    hosts_try_auth = <%= gateway_auth_hosts_try_auth %>
-
 cram_md5:
     driver = cram_md5
     public_name = CRAM-MD5

@@ -95,9 +95,9 @@ class exim ($ensure="running",
     }
 
     if ( $ensure == "running" ) {
-        $enabled = true
+        $enable = true
     } else {
-        $enabled = false
+        $enable = false
     }
 
     if ($supported == true) {
@@ -116,7 +116,7 @@ class exim ($ensure="running",
 
         service { "exim":
             ensure      => $ensure,
-            enabled     => $enabled,
+            enable      => $enable,
             name        => $svc_name,
             hasstatus   => true,
             hasrestart  => true,
