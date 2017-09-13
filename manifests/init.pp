@@ -18,11 +18,12 @@
 # Sample Usage:
 # include exim()
 # include exim(version="latest", use_smarthost=true, smarthost_route_data="mymta.domain.dom")
-# 
+#
 #
 # [Remember: No empty lines between comments and class definition]
 class exim ($ensure="running",
             $version="installed",
+            $primary_hostname="${::fqdn}",
             $domainlist_local_domains="@ : localhost : localhost.localdomain",
             $domainlist_relay_to_domains="",
             $hostlist_relay_from_hosts="127.0.0.1",
@@ -64,7 +65,7 @@ class exim ($ensure="running",
             $gateway_auth_hosts_try_auth="",
             $gateway_auth_username="",
             $gateway_auth_secret=""
-        ) 
+        )
 {
     if ! ($ensure in [ "running", "stopped" ]) {
         fail("ensure parameter must be running or stopped")
@@ -109,7 +110,7 @@ class exim ($ensure="running",
             ensure => present,
             require => Package[$pkg_name],
             content => template('exim/exim.conf.erb'),
-            mode    => 0640,
+            mode    => '0640',
             owner   => 'root',
             group   => 'mail',
         }
