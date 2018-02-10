@@ -8,3 +8,5 @@ Tested platforms:
 Sample Usage:
   include exim()
   include exim(version="latest", use_smarthost=true, smarthost_route_data="mymta.domain.dom")
+
+blah blah
